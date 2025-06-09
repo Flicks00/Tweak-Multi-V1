@@ -1,16 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 body {
-  font-family: sans-serif;
-  background: #f8f8f8;
-  padding: 20px;
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: black;
+  color: #00ff00; /* verde brillante */
+  font-family: 'Share Tech Mono', monospace;
+  overflow-x: hidden;
+  position: relative;
 }
 
-nav {
-  margin-bottom: 20px;
+/* Sfondo animato "codice che scorre" */
+.background-code {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* cliccabile solo il contenuto vero */
+  z-index: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0.15;
+  user-select: none;
+  animation: scrollCode 10s linear infinite;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
-nav a {
-  margin: 0 10px;
+/* Animazione del testo che scorre da destra a sinistra */
+@keyframes scrollCode {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Contenuto vero sopra lo sfondo */
+.content {
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+}
+
+/* Navbar scura con pulsanti verdi */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #001100;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.navbar a {
+  color: #00ff00;
   text-decoration: none;
-  color: #333;
+  margin: 0 1.5rem;
+  font-size: 1.1rem;
+  transition: color 0.3s;
 }
+
+.navbar a:hover {
+  color: #66ff66;
+}
+
