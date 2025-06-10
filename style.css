@@ -1,71 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
+/* Sfondo animato con pattern tecnologico */
 body {
   margin: 0;
-  padding: 0;
   height: 100vh;
-  background-color: black;
-  color: #00ff00; /* verde brillante */
-  font-family: 'Share Tech Mono', monospace;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* Sfondo animato "codice che scorre" */
-.background-code {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* cliccabile solo il contenuto vero */
-  z-index: 0;
-  white-space: nowrap;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #00ff00; /* scritte verde "cheater" */
+  background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
   overflow: hidden;
-  opacity: 0.15;
-  user-select: none;
-  animation: scrollCode 10s linear infinite;
-  font-size: 1.2rem;
-  line-height: 1.5;
-}
-
-/* Animazione del testo che scorre da destra a sinistra */
-@keyframes scrollCode {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* Contenuto vero sopra lo sfondo */
-.content {
-  position: relative;
-  z-index: 10;
-  padding: 2rem;
-}
-
-/* Navbar scura con pulsanti verdi */
-.navbar {
   display: flex;
-  justify-content: center;
-  background-color: #001100;
-  padding: 1rem 0;
-  position: sticky;
+  flex-direction: column;
+}
+
+/* Barra in alto */
+nav {
+  background-color: #000000;
+  padding: 15px 30px;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  width: 100%;
   top: 0;
-  z-index: 20;
+  z-index: 10;
 }
 
-.navbar a {
-  color: #00ff00;
+nav a {
+  color: #000000;
+  background-color: #00ff00;
   text-decoration: none;
-  margin: 0 1.5rem;
-  font-size: 1.1rem;
-  transition: color 0.3s;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
-.navbar a:hover {
-  color: #66ff66;
+nav a:hover {
+  background-color: #33ff33;
+  color: #000;
 }
 
+/* contenuto centrato */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px 20px; /* spazio in alto per nav */
+}
+
+/* Animazione sfondo con linee tech (effetto circuito semplice) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0, 255, 0, 0.05),
+      rgba(0, 255, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0, 255, 0, 0.05),
+      rgba(0, 255, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+  animation: moveLines 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes moveLines {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 100px 100px, -100px -100px;
+  }
+}
