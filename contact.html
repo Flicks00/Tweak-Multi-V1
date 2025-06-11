@@ -2,18 +2,141 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Contatti</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Contatti - Tweak Multi V1</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+      color: #00ff00;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        repeating-linear-gradient(45deg, rgba(0,255,0,0.05), rgba(0,255,0,0.05) 1px, transparent 1px, transparent 5px),
+        repeating-linear-gradient(-45deg, rgba(0,255,0,0.05), rgba(0,255,0,0.05) 1px, transparent 1px, transparent 5px);
+      animation: moveLines 20s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes moveLines {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: 100px 100px, -100px -100px; }
+    }
+
+    nav {
+      background-color: #000;
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,255,0,0.2);
+    }
+
+    nav a {
+      color: black;
+      background-color: #00ff00;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 12px 24px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ff00;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #33ff33;
+      color: black;
+      text-decoration: underline;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #33ff33;
+    }
+
+    main {
+      padding: 140px 20px 60px;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+      z-index: 1;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3em;
+      font-weight: bold;
+      text-shadow: 0 0 15px #00ff00;
+      animation: pulse 2s infinite;
+    }
+
+    p {
+      font-size: 1.4em;
+      line-height: 1.8em;
+      max-width: 800px;
+      margin: 20px auto;
+      color: #a6ffa6;
+      text-shadow: 0 0 5px #00ff00;
+    }
+
+    a.discord-link {
+      color: #00ff00;
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid #00ff00;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 25px;
+      box-shadow: 0 0 12px #00ff00;
+      transition: all 0.3s ease;
+      font-size: 1.4em;
+    }
+
+    a.discord-link:hover {
+      background-color: #33ff33;
+      color: #000;
+      box-shadow: 0 0 25px #33ff33;
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 10px #00ff00; }
+      50% { text-shadow: 0 0 20px #00ff00; }
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">Chi siamo</a>
-    <a href="contact.html">Contatti</a>
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">👨‍💻 Chi siamo</a>
+    <a href="contact.html" class="active">📩 Contattaci</a>
+    <a href="https://forms.gle/UKB6JX73yCqaz2gZ7" target="_blank">📝 Feedback</a>
   </nav>
 
-  <h1>Contattaci</h1>
-  <p>Ci puoi contattare su discord: https://discord.gg/3Mw9SGYuRX Apri un ticket sul server che ti spiegheremo tutto, come fare e cosa fare</p>
+  <main>
+    <h1>Contattaci</h1>
+    <p>Per qualsiasi domanda o supporto, unisciti al nostro server Discord e apri un ticket. Ti guideremo passo dopo passo!</p>
+    <a class="discord-link" href="https://discord.gg/3Mw9SGYuRX" target="_blank" rel="noopener noreferrer">💬 Entra nel Discord</a>
+  </main>
 </body>
 </html>
-

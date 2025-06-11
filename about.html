@@ -2,45 +2,186 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Chi siamo</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Chi siamo - Tweak Multi V1</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+      color: #00ff00;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        repeating-linear-gradient(45deg, rgba(0,255,0,0.05), rgba(0,255,0,0.05) 1px, transparent 1px, transparent 5px),
+        repeating-linear-gradient(-45deg, rgba(0,255,0,0.05), rgba(0,255,0,0.05) 1px, transparent 1px, transparent 5px);
+      animation: moveLines 20s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes moveLines {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: 100px 100px, -100px -100px; }
+    }
+
+    nav {
+      background-color: #000;
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,255,0,0.2);
+    }
+
+    nav a {
+      color: black;
+      background-color: #00ff00;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 12px 24px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ff00;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #33ff33;
+      color: black;
+      text-decoration: underline;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #33ff33;
+    }
+
+    main {
+      padding: 140px 20px 60px;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+      z-index: 1;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3em;
+      font-weight: bold;
+      text-shadow: 0 0 15px #00ff00;
+      animation: pulse 2s infinite;
+    }
+
+    .logo-icon {
+      font-size: 4em;
+      animation: glitch 1.5s infinite alternate;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .description {
+      font-size: 1.4em;
+      line-height: 1.8em;
+      max-width: 800px;
+      margin: auto;
+      color: #a6ffa6;
+      text-shadow: 0 0 5px #00ff00;
+    }
+
+    .team {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .member {
+      background: linear-gradient(135deg, rgba(0,255,0,0.2), rgba(51,255,51,0.1));
+      border: 2px solid #33ff33;
+      border-radius: 15px;
+      padding: 30px 20px;
+      width: 300px;
+      box-shadow: 0 0 20px #00ff00;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .member:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px #33ff33;
+    }
+
+    .member h3 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 12px #33ff33;
+    }
+
+    .member p {
+      font-size: 1.2em;
+      line-height: 1.6em;
+      color: #ccffcc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 10px #00ff00; }
+      50% { text-shadow: 0 0 20px #00ff00; }
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      20% { transform: translate(-2px, 1px) scale(1.05); }
+      40% { transform: translate(2px, -1px) scale(0.95); opacity: 0.9; }
+      60% { transform: translate(-1px, 2px); }
+      80% { transform: translate(1px, -2px); }
+      100% { transform: translate(0, 0); }
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">Chi siamo</a>
-    <a href="contact.html">Contatti</a>
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html" class="active">👨‍💻 Chi siamo</a>
+    <a href="contact.html">📩 Contattaci</a>
+    <a href="https://forms.gle/UKB6JX73yCqaz2gZ7" target="_blank">📝 Feedback</a>
   </nav>
 
-  <h1>Chi siamo</h1>
-  <p>Ciao a tutti! 👋 Siamo entusiasti di annunciarvi che presto sarà disponibile il tweak multiV1, un tool avanzato che rivoluzionerà le performance del vostro PC! 💻⚡
+  <main>
+    <div class="logo-icon">💻</div>
+    <h1>Chi siamo</h1>
+    <p class="description">
+      Siamo i fondatori di <strong>Tweak Multi V1</strong>, un progetto dedicato a portare al massimo le performance dei PC con stile, efficienza e originalità.
+    </p>
 
-💰 INFO IMPORTANTI:
-Il tweak multiV1 è un prodotto al momento è tutto gratis!!!.
-Acquistandolo, otterrete uno strumento potente, sicuro e completo per ottimizzare il vostro sistema operativo Windows con un semplice click!
+    <section class="team">
+      <div class="member">
+        <h3>🔹 PRADE</h3>
+        <p>Si occupa della parte <strong>HTML</strong> e <strong>design</strong>, creando un'esperienza visiva unica e moderna.</p>
+      </div>
 
-🤔 Cos’è il tweak multiV1?
-multiV1 è uno script avanzato (.bat) progettato per:
-
-Ottimizzare memoria e CPU liberando risorse preziose
-
-Pulire automaticamente file temporanei, cache e cronologia browser
-
-Gestire servizi di sistema, disattivandoli o riattivandoli per migliorare la velocità e la stabilità
-
-Migliorare la velocità di avvio di Windows
-
-Offrire un menu interattivo completo con molte opzioni utili, inclusi strumenti avanzati protetti da password per sicurezza extra 🔐
-
-🔐 Sicurezza e accesso protetto
-Il tweak multiV1 include una password di accesso che garantisce che solo chi acquista il tool possa usarlo, proteggendo così le funzionalità più delicate e avanzate. Questo assicura un uso responsabile e mirato, evitando problemi al sistema.
-
-🚀 Perché vale la pena?
-Facile da usare: basta un doppio click con permessi di amministratore
-
-Completo: copre pulizia, ottimizzazione, gestione servizi e molto altro
-
-Sicuro e testato: progettato per migliorare il sistema senza rischi
-".</p>
+      <div class="member">
+        <h3>🔸 FLICKS</h3>
+        <p>Responsabile dei <strong>codici Python</strong>, <strong>HTML</strong> avanzato e degli <strong>script</strong> del sito. Il cuore tecnico dietro il progetto.</p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
